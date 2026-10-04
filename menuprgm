@@ -1,0 +1,53 @@
+import math
+
+while True:
+    print("1. Add 2. Subtract 3. Multiply 4. Divide")
+    print("5. Power 6. Square Root 7. Factorial 8. Exit")
+
+    choice = input("Enter choice (1-8): ")
+
+    if choice == '8':
+        print("Exit")
+        break
+
+    elif choice in ['1', '2', '3', '4', '5']:
+        try:
+            a = float(input("Enter the 1st number: "))
+            b = float(input("Enter the 2nd number: "))
+        except ValueError:
+            print("Please enter valid numbers.")
+            continue
+
+        if choice == '1':
+            print("Result:", a + b)
+        elif choice == '2':
+            print("Result:", a - b)
+        elif choice == '3':
+            print("Result:", a * b)
+        elif choice == '4':
+            if b != 0:
+                print("Result:", a / b)
+            else:
+                print("Zero Division Error")
+        elif choice == '5':
+            print("Result:", math.pow(a, b))
+
+    elif choice in ['6', '7']:
+        try:
+            if choice == '6':
+                num = float(input("Enter the number: "))
+                if num < 0:
+                    print("Cannot take square root of a negative number.")
+                else:
+                    print("Result:", math.sqrt(num))
+            else:
+                num = int(input("Enter the number: "))
+                if num < 0:
+                    print("Factorial is not defined for negative numbers.")
+                else:
+                    print("Result:", math.factorial(num))
+        except ValueError:
+            print("Please enter a valid number.")
+
+    else:
+        print("Invalid choice! Try again.")
